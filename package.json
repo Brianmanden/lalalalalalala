@@ -1,0 +1,44 @@
+{
+  "name": "polymer-starter-kit",
+  "version": "4.0.0-pre.2",
+  "description": "A starting point for Polymer apps",
+  "author": "The Polymer Authors",
+  "license": "BSD-3-Clause",
+  "repository": "Polymer/polymer-starter-kit",
+  "scripts": {
+    "start": "polymer serve",
+    "build": "polymer build",
+    "lint": "polymer lint",
+    "test": "polymer test",
+    "test:integration": "polymer build # test that psk builds without error with the CLI"
+  },
+  "dependencies": {
+    "@polymer/app-layout": "^3.0.0-pre.12",
+    "@polymer/app-route": "^3.0.0-pre.12",
+    "@polymer/iron-flex-layout": "^3.0.0-pre.12",
+    "@polymer/iron-form": "0.0.3",
+    "@polymer/iron-iconset-svg": "^3.0.0-pre.12",
+    "@polymer/iron-media-query": "^3.0.0-pre.12",
+    "@polymer/iron-pages": "^3.0.0-pre.12",
+    "@polymer/iron-selector": "^3.0.0-pre.12",
+    "@polymer/lit-element": "^0.3.0",
+    "@polymer/paper-button": "0.0.3",
+    "@polymer/paper-icon-button": "^3.0.0-pre.12",
+    "@polymer/polymer": "^3.0.0-pre.12",
+    "@webcomponents/webcomponentsjs": "^1.2.0",
+    "eslint-plugin-polymer": "^0.2.1",
+    "lit-html": "^0.9.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-config-google": "^0.9.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "polymer-cli": "^1.7.0-pre.13",
+    "wct-browser-legacy": "^0.0.1-pre.12"
+  }
+}
