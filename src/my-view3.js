@@ -5,8 +5,6 @@ import './shared-styles.js';
 import './scripts/login';
 import buildBoard from './scripts/build-board';
 
-
-
 class MyView3 extends LitElement {
   constructor() {
     super();
@@ -42,7 +40,6 @@ class MyView3 extends LitElement {
     }
   }
 
-
     isFlipped(card) {
         return card.state.flipped
     }
@@ -50,30 +47,25 @@ class MyView3 extends LitElement {
         return card.state.matched
     }
 
-
-
-
-  render() {
-      console.trace(this.token)
+  render() {    
     return html`
       <style include="shared-styles">
-        :host {
-          display: block;
-          padding: 10px;
-        }
-
+      :host {
+        display: block;
+        padding: 10px;
+      }
       </style>
-     <div id="app">
+      <div id="app">
         <my-login token=${this.token} /> 
-        <form class="build" hidden>
+          <form class="build" hidden>
             <input value="3" type="number" min="1" max="20" />
             <button type="submit" class="build">Build-A-Board</button>
-        </form>
-        ${this.appState.state.cards.map((card) => {
-            
-    })}
-    </div>
+          </form>
 
+          ${this.appState.state.cards.map((card) => {
+            
+          })}
+      </div>
     `;
   }
 }
