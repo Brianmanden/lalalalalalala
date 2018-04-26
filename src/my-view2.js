@@ -1,26 +1,36 @@
-/**
- * @license
- * Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
- * This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
- * The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
- * The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
- * Code distributed by Google as part of the polymer project is also
- * subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
- */
+import {LitElement, html} from '@polymer/lit-element/lit-element';
+import '@polymer/paper-icon-button/paper-icon-button';
+import './shared-styles';
+import './scripts/login';
+import './scripts/scripts';
+import buildBoard from './scripts/build-board';
 
-import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
-import './shared-styles.js';
+const settings = {
+  pairSize: 2,
+  thinkTime: 5000,
+  availableValues: Array(100).fill(0).map((value, index) => index),
+}
 
-class MyView2 extends PolymerElement {
-  static get template() {
+class MyView2 extends LitElement {
+  render(){
+    const cards = buildBoard(9, settings);
+    console.dir(cards);
+
     return html`
       <style include="shared-styles">
         :host {
           display: block;
-
           padding: 10px;
         }
       </style>
+
+      <div id="app">
+        <form class="build">
+          <input value="3" type="number" min="1" max="20" />
+          <button type="submit" class="build">Build</button>
+        </form>
+        <p>-1-</p>
+      </div>
 
       <div class="card">
         <div class="circle">2</div>
@@ -29,6 +39,9 @@ class MyView2 extends PolymerElement {
         <p>Id nam odio natum malorum, tibique copiosae expetenda mel ea.Detracto suavitate repudiandae no eum. Id adhuc minim soluta nam.Id nam odio natum malorum, tibique copiosae expetenda mel ea.</p>
       </div>
     `;
+
+    // ${this.appState.state.cards.map((card) => {          
+    // })}
   }
 }
 

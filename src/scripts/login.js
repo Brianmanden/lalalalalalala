@@ -1,5 +1,5 @@
 import {LitElement, html} from '@polymer/lit-element/lit-element.js';
-import '@polymer/iron-form-element-behavior/iron-form-element-behavior.js'
+// import '@polymer/iron-form-element-behavior/iron-form-element-behavior.js'
 
 const BASE_URL = 'https://us-central1-fe-workshop-april-2018.cloudfunctions.net';
 
@@ -38,7 +38,7 @@ class Login extends LitElement {
 
     constructor() {
         super();
-        }
+    }
 
 async handleLogin(e) {
     e.preventDefault()
@@ -57,6 +57,7 @@ async handleLogin(e) {
 }
 
 render({token}) {
+    console.log("-2-");
     if(token) return null;
 
     this.token = token;
@@ -64,8 +65,8 @@ render({token}) {
     return html`
         <style include="shared-styles">
             :host {
-            display: block;
-            padding: 10px;
+                display: block;
+                padding: 10px;
             }
         </style>
         
