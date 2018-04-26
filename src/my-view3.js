@@ -5,7 +5,6 @@ import './shared-styles.js';
 import './scripts/login';
 import buildBoard from './scripts/build-board';
 
-
 class MyView3 extends LitElement {
   constructor() {
     super();
