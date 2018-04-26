@@ -6,12 +6,13 @@ import './scripts/login';
 import buildBoard from './scripts/build-board';
 
 
+let token = '';
 
 class MyView3 extends LitElement {
   constructor() {
     super();
+    this.token = 'test';
     this.BASE_URL = 'https://us-central1-fe-workshop-april-2018.cloudfunctions.net';
-    this.token = '';
     this.appState = {
       lastFlip: null,
       clickIndex: 2,
@@ -43,18 +44,33 @@ class MyView3 extends LitElement {
   }
 
 
-    isFlipped(card) {
-        return card.state.flipped
+    ready() {
+        this.addEventListener('token', async (e) => {
+            e.preventDefault()
+            console.log(e.target)
+            this.token = 'Hello from the other side'
+        });
+        super.ready();
     }
-    isMatched(card) {
-        return card.state.matched
-    }
-
-
-
 
   render() {
-      console.trace(this.token)
+      console.log('running', this.token);
+      const setToken = (newToken) => {
+        console.log('in set token', this.token);
+
+          newToken.then(val => {
+              console.dir(val)
+              this.token = val;
+
+        console.log('after set token', this.token);
+          })
+        console.log('done', this.token);
+          //console.log(await newToken)
+          // if (newToken) {
+          //     this.token = await newToken;
+          // }
+            //console.log(this.token);
+      };
     return html`
       <style include="shared-styles">
         :host {
@@ -64,14 +80,8 @@ class MyView3 extends LitElement {
 
       </style>
      <div id="app">
-        <my-login token=${this.token} /> 
-        <form class="build" hidden>
-            <input value="3" type="number" min="1" max="20" />
-            <button type="submit" class="build">Build-A-Board</button>
-        </form>
-        ${this.appState.state.cards.map((card) => {
-            
-    })}
+     <h3>Hello ${this.token}</h3>
+        <my-login setToken=${setToken} token=${this.token}/> 
     </div>
 
     `;
