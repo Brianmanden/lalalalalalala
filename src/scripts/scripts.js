@@ -369,58 +369,59 @@ function update(currentAppState, $app) {
 }
 
 (() => {
-  const $app = document.getElementById('app')
+  // const $app = document.getElementById('app');
+  // console.dir($app.querySelector('#test'));
 
-  appState.loginForm = $app.querySelector('form.login')
-  appState.buildForm = $app.querySelector('form.build')
+  // appState.loginForm = $app.querySelector('form.login')
+  // appState.buildForm = $app.querySelector('form.build')
 
-  appState.loginForm.addEventListener('submit', async (event) => {
-    event.preventDefault()
-    const username = event.target.querySelector('[name=name]').value
+  // appState.loginForm.addEventListener('submit', async (event) => {
+  //   event.preventDefault()
+  //   const username = event.target.querySelector('[name=name]').value
 
-    appState.state = {
-      ...appState.state,
-      login: {
-        busy: true,
-      },
-    }
+  //   appState.state = {
+  //     ...appState.state,
+  //     login: {
+  //       busy: true,
+  //     },
+  //   }
 
-    try {
-      const token = await login(username)
-      appState.state = {
-        ...appState.state,
-        login: {
-          busy: false,
-          token,
-          username,
-        },
-      }
-    } catch (e) {
-      appState.state = {
-        ...appState.state,
-        login: {
-          busy: false,
-          token: null,
-          username: null,
-          error: e.message,
-        },
-      }
-    }
-  })
+  //   try {
+  //     const token = await login(username)
+  //     appState.state = {
+  //       ...appState.state,
+  //       login: {
+  //         busy: false,
+  //         token,
+  //         username,
+  //       },
+  //     }
+  //   } catch (e) {
+  //     appState.state = {
+  //       ...appState.state,
+  //       login: {
+  //         busy: false,
+  //         token: null,
+  //         username: null,
+  //         error: e.message,
+  //       },
+  //     }
+  //   }
+  // })
 
-  appState.buildForm.addEventListener('submit', (event) => {
-    event.preventDefault()
+  // appState.buildForm.addEventListener('submit', (event) => {
+  //   event.preventDefault()
 
-    const pairs = parseInt(event.currentTarget.querySelector('input').value, 10)
-    if (pairs >= 1 && pairs !== appState.state.pairs) {
-      appState.state = {
-        ...appState.state,
-        'turns-taken': 0,
-        'celebrate': false,
-        pairs,
-      }
-    }
-  })
+  //   const pairs = parseInt(event.currentTarget.querySelector('input').value, 10)
+  //   if (pairs >= 1 && pairs !== appState.state.pairs) {
+  //     appState.state = {
+  //       ...appState.state,
+  //       'turns-taken': 0,
+  //       'celebrate': false,
+  //       pairs,
+  //     }
+  //   }
+  // })
 
-  update(appState, $app)
+  // update(appState, $app)
 })()

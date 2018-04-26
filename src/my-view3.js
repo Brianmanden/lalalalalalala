@@ -6,8 +6,6 @@ import './scripts/login';
 import buildBoard from './scripts/build-board';
 
 
-let token = '';
-
 class MyView3 extends LitElement {
   constructor() {
     super();
@@ -43,7 +41,6 @@ class MyView3 extends LitElement {
     }
   }
 
-
     ready() {
         this.addEventListener('token', async (e) => {
             e.preventDefault()
@@ -73,17 +70,19 @@ class MyView3 extends LitElement {
       };
     return html`
       <style include="shared-styles">
-        :host {
-          display: block;
-          padding: 10px;
-        }
-
+      :host {
+        display: block;
+        padding: 10px;
+      }
       </style>
      <div id="app">
      <h3>Hello ${this.token}</h3>
         <my-login setToken=${setToken} token=${this.token}/> 
     </div>
-
+          ${this.appState.state.cards.map((card) => {
+            
+          })}
+      </div>
     `;
   }
 }

@@ -57,7 +57,6 @@ class Login extends LitElement {
 
     constructor() {
         super();
-        //this.handleLogin.bind(this)
 
     }
 
@@ -108,8 +107,8 @@ render({setToken, token}) {
     return html`
         <style include="shared-styles">
             :host {
-            display: block;
-            padding: 10px;
+                display: block;
+                padding: 10px;
             }
         </style>
         

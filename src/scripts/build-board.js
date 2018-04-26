@@ -1,5 +1,6 @@
 const buildBoard = (pairs, settings) => {
-        const values = this.settings.availableValues.slice()
+        //const values = this.settings.availableValues.slice()
+        const values = settings.availableValues.slice()
 
         const valuePairs = Array(pairs).fill(0).map(() => {
             const randomValueIndex = Math.floor(Math.random() * values.length)
